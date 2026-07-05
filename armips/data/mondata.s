@@ -1721,7 +1721,7 @@ mondata SPECIES_MAGNEMITE, "Magnemite"
     catchrate 190
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 1, 0
-    items ITEM_NONE, ITEM_METAL_COAT
+    items ITEM_MAGNET, ITEM_METAL_COAT
     genderratio 255
     eggcycles 20
     basefriendship 50
@@ -2074,7 +2074,7 @@ mondata SPECIES_HYPNO, "Hypno"
 
 mondata SPECIES_KRABBY, "Krabby"
     basestats 30, 105, 90, 50, 25, 25
-    types TYPE_WATER, TYPE_WATER
+    types TYPE_WATER, TYPE_NORMAL
     catchrate 225
     baseexp 0 // defined in baseexp.s
     evyields 0, 1, 0, 0, 0, 0
@@ -2095,7 +2095,7 @@ mondata SPECIES_KRABBY, "Krabby"
 
 mondata SPECIES_KINGLER, "Kingler"
     basestats 55, 130, 115, 75, 50, 50
-    types TYPE_WATER, TYPE_WATER
+    types TYPE_WATER, TYPE_NORMAL
     catchrate 60
     baseexp 0 // defined in baseexp.s
     evyields 0, 2, 0, 0, 0, 0
@@ -2456,7 +2456,7 @@ mondata SPECIES_HORSEA, "Horsea"
     catchrate 225
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 1, 0
-    items ITEM_NONE, ITEM_DRAGON_SCALE
+    items ITEM_DRAGON_SCALE, ITEM_BIG_PEARL
     genderratio 127
     eggcycles 20
     basefriendship 50
@@ -4598,7 +4598,7 @@ mondata SPECIES_SLUGMA, "Slugma"
     catchrate 190
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 1, 0
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_CHARCOAL, ITEM_CHARCOAL
     genderratio 127
     eggcycles 20
     basefriendship 70
@@ -4640,7 +4640,7 @@ mondata SPECIES_SWINUB, "Swinub"
     catchrate 225
     baseexp 0 // defined in baseexp.s
     evyields 0, 1, 0, 0, 0, 0
-    items ITEM_ASPEAR_BERRY, ITEM_NONE
+    items ITEM_ASPEAR_BERRY, ITEM_ICY_ROCK
     genderratio 127
     eggcycles 20
     basefriendship 50
@@ -5843,7 +5843,7 @@ mondata SPECIES_SWELLOW, "Swellow"
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
-    abilities ABILITY_GUTS, ABILITY_NONE
+    abilities ABILITY_GUTS, ABILITY_WONDER_GUARD
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     mondexentry SPECIES_SWELLOW, "It dives at a steep angle as soon\nas it spots its prey. It catches\nits prey with sharp claws."
@@ -7706,7 +7706,7 @@ mondata SPECIES_CLAMPERL, "Clamperl"
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 1, 0, 0, 0
-    items ITEM_PEARL, ITEM_BLUE_SHARD
+    items ITEM_PEARL, ITEM_BIG_PEARL
     genderratio 127
     eggcycles 20
     basefriendship 70
@@ -12074,7 +12074,7 @@ mondata SPECIES_ROGGENROLA, "Roggenrola"
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 1, 0, 0, 0
-    items ITEM_EVERSTONE, ITEM_HARD_STONE
+    items ITEM_EVERSTONE, ITEM_BIG_PEARL
     genderratio 127
     eggcycles 15
     basefriendship 50
@@ -23464,7 +23464,7 @@ mondata SPECIES_SANDSHREW_ALOLAN, "-----"
     catchrate 255
     baseexp 60
     evyields 0, 0, 1, 0, 0, 0
-    items ITEM_NONE, ITEM_GRIP_CLAW
+    items ITEM_ICY_ROCK, ITEM_GRIP_CLAW
     genderratio 127
     eggcycles 20
     basefriendship 70

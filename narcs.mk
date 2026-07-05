@@ -638,3 +638,7 @@ $(HEADBUTT_NARC): $(HEADBUTT_DEPENDENCIES)
 	$(NARCHIVE) create $@ $(HEADBUTT_DIR) -nf
 
 NARC_FILES += $(HEADBUTT_NARC)
+
+# rebuild these narcs everytime 
+.PHONY: $(SCR_SEQ_NARC)
+.PHONY: $(MSGDATA_NARC)

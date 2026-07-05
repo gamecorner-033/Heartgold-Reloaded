@@ -188,7 +188,7 @@ movedata MOVE_SCRATCH, "Scratch"
 movedata MOVE_VICE_GRIP, "Vise Grip"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
-    basepower 55
+    basepower 60
     type TYPE_NORMAL
     accuracy 100
     pp 30

@@ -2584,9 +2584,9 @@ _17A0: // Trainer 598
     trainertextentry 598, TEXT_DOUBLE_ONLY_1_POKEMON_2, "Dani: If you want to battle Pokémon\nwith us, you’ll have to bring more...\n"
 
 _17C0: // Trainer 599
-    trainertextentry 599, TEXT_NOTICE_IN_OVERWORLD, "Walking along with luggage and your\ncompanion Pokémon gives a great feeling\fof outdoor life!\r"
-    trainertextentry 599, TEXT_DEFEATED_IN_BATTLE, "Yaha! I lost!\n"
-    trainertextentry 599, TEXT_DEFEATED_IN_OVERWORLD, "Are you also on a solo journey?\nSee you again sometime. Bye for now!\n"
+    trainertextentry 599, TEXT_NOTICE_IN_OVERWORLD, "James: I’ve explored many regions\nDo you think you have what it takes?\rAlright, Lets go!!\r"
+    trainertextentry 599, TEXT_DEFEATED_IN_BATTLE, "James: Wow... I can’t believe it..\n"
+    trainertextentry 599, TEXT_DEFEATED_IN_OVERWORLD, "James: Did you see the shiny Starvia?\nI believe it’s in Route 31?\n"
 
 _17CC: // Trainer 600
     trainertextentry 600, TEXT_NOTICE_IN_OVERWORLD, "I’m headed out on a picnic. Do you\nknow why?\r"
@@ -3094,6 +3094,17 @@ _1ACC: // Trainer 629
 _1AD0: // Trainer 630
     trainertextentry 630, TEXT_DEFEATED_IN_BATTLE, "Whoa, you’re kickin’!\n"
 
+_NewTrainerTest: // Trainer 11
+    trainertextentry  11, TEXT_NOTICE_IN_OVERWORLD, "Game Dev Brookes: You really thought\nyou would be able to run through here\r Without battling me? Lets see what\n you've got."
+    trainertextentry  11, TEXT_LAST_MON_CRITICAL, "Say, you’ve got a lot of nerve,\ncoming here...\n"
+    trainertextentry  11, TEXT_LAST_MON_SENT_OUT, "That’s ridiculous. There’s no way\nI could lose to a wimp like you!\n"
+    trainertextentry  11, TEXT_DEFEATED_IN_BATTLE, "...Humph!\nUseless Pokémon!\rListen, you. You won only because my\nPokémon were weak.\n"
+    trainertextentry  11, TEXT_PLAYER_LOSES, "...Humph!\nI knew you were lying.\n"
+    trainertextentry  11, TEXT_DEFEATED_IN_OVERWORLD, "Steal and sell!\nThat’s basic in crime, kid!\n"
+
+    
+
+
 .close
 
 
@@ -3111,7 +3122,7 @@ _1AD0: // Trainer 630
 /* Trainer   8 */ .halfword _0A14
 /* Trainer   9 */ .halfword _0C8C
 /* Trainer  10 */ .halfword _0224
-/* Trainer  11 */ .halfword _0000
+/* Trainer  11 */ .halfword _NewTrainerTest
 /* Trainer  12 */ .halfword _1218
 /* Trainer  13 */ .halfword _1230
 /* Trainer  14 */ .halfword _1370

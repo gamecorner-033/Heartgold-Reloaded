@@ -1,6 +1,7 @@
 .include "armips/include/config.s"
 .include "armips/include/constants.s"
 
+
 // standard assembler includes
 .include "asm/include/abilities.inc"
 .include "asm/include/items.inc"
@@ -21,7 +22,7 @@
 .include "armips/asm/swarms.s" // modify swarms
 
 .include "armips/data/starters.s" // data definitions for which species to use for the starter Pokemon
-
+.include "armips/asm/custom/mart_items.s"
 .if REUSABLE_TMS == 1
 
 .include "armips/asm/tm.s" // make tms infinite

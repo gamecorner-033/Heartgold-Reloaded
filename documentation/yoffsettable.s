@@ -498,5 +498,4 @@
 /* SPECIES_DARKRAI         */ .byte 12
 /* SPECIES_SHAYMIN         */ .byte 2
 /* SPECIES_ARCEUS          */ .byte 0
-
 .close

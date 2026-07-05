@@ -501,6 +501,7 @@ const char *monlist[] =
     "SPECIES_DARKRAI",
     "SPECIES_SHAYMIN",
     "SPECIES_ARCEUS",
+    
 };
 
 int main(int argc, char **argv)
