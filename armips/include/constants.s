@@ -2,25 +2,29 @@
 
 // types
 
-.equ TYPE_NORMAL, 0
-.equ TYPE_FIGHTING, 1
-.equ TYPE_FLYING, 2
-.equ TYPE_POISON, 3
-.equ TYPE_GROUND, 4
-.equ TYPE_ROCK, 5
-.equ TYPE_BUG, 6
-.equ TYPE_GHOST, 7
-.equ TYPE_STEEL, 8
-.equ TYPE_MYSTERY, 9
-.equ TYPE_FAIRY, 9
-.equ TYPE_FIRE, 10
-.equ TYPE_WATER, 11
-.equ TYPE_GRASS, 12
-.equ TYPE_ELECTRIC, 13
-.equ TYPE_PSYCHIC, 14
-.equ TYPE_ICE, 15
-.equ TYPE_DRAGON, 16
-.equ TYPE_DARK, 17
+.equ TYPE_NORMAL            , 0
+.equ TYPE_FIGHTING          , 1
+.equ TYPE_FLYING            , 2
+.equ TYPE_POISON            , 3
+.equ TYPE_GROUND            , 4
+.equ TYPE_ROCK              , 5
+.equ TYPE_BUG               , 6
+.equ TYPE_GHOST             , 7
+.equ TYPE_STEEL             , 8
+.equ TYPE_MYSTERY           , 9
+.equ TYPE_FAIRY             , 9 // TODO: 17
+.equ TYPE_FIRE              , 10
+.equ TYPE_WATER             , 11
+.equ TYPE_GRASS             , 12
+.equ TYPE_ELECTRIC          , 13
+.equ TYPE_PSYCHIC           , 14
+.equ TYPE_ICE               , 15
+.equ TYPE_DRAGON            , 16
+.equ TYPE_DARK              , 17
+.equ TYPE_TYPELESS          , 18
+.equ TYPE_STELLAR           , 19 // TODO: 99
+
+.equ NUMBER_OF_MON_TYPES    , 20
 
 // body colors
 
@@ -104,8 +108,18 @@
 .equ EVO_LEVEL_NATURE_LOW_KEY, 35
 .equ EVO_AMOUNT_OF_CRITICAL_HITS, 36
 .equ EVO_HURT_IN_BATTLE_AMOUNT, 37
-//EVO_DARK_SCROLL  // implemented through an item use forme-change-esque cut scene
-//EVO_WATER_SCROLL // implemented through an item use forme-change-esque cut scene
+.equ EVO_SPIN_CLOCKWISE_LESS_THAN_5_SECONDS_DAY, 38            // Vanilla Cream
+.equ EVO_SPIN_COUNTERCLOCKWISE_LESS_THAN_5_SECONDS_DAY, 39     // Ruby Cream
+.equ EVO_SPIN_CLOCKWISE_LESS_THAN_5_SECONDS_NIGHT, 40          // Matcha Cream
+.equ EVO_SPIN_COUNTERCLOCKWISE_MORE_THAN_5_SECONDS_NIGHT, 41   // Mint Cream
+.equ EVO_SPIN_CLOCKWISE_MORE_THAN_5_SECONDS_NIGHT, 42          // Lemon Cream
+.equ EVO_SPIN_COUNTERCLOCKWISE_LESS_THAN_5_SECONDS_NIGHT, 43   // Salted Cream
+.equ EVO_SPIN_COUNTERCLOCKWISE_MORE_THAN_5_SECONDS_DAY, 44     // Ruby Swirl
+.equ EVO_SPIN_CLOCKWISE_MORE_THAN_5_SECONDS_DAY, 45            // Caramel Swirl
+.equ EVO_SPIN_MORE_THAN_10_SECONDS_EVENING, 46                 // Rainbow Swirl
+.equ EVO_FORM_ARGUMENT, 47 // Yamask, Stantler, Basculin, Primeape, Bisharp, Gimmighoul
+.equ EVO_LETS_GO, 48 // Pawmo, Bramblin, Rellor https://xcancel.com/Sibuna_Switch/status/1678027317891694593
+.equ EVO_DUMMY, 49 // Inaccessible evolution methods
 
 // shadow size constants
 
@@ -122,6 +136,138 @@
 .equ OVERWORLD_BOUNCE_FAST, 0x00
 .equ OVERWORLD_BOUNCE_MED, 0x10
 .equ OVERWORLD_BOUNCE_SLOW, 0x11
+
+// trainer classes - placed up here for proper parsing using the dump scripts
+
+.equ TRAINERCLASS_PKMN_TRAINER_ETHAN,     0
+.equ TRAINERCLASS_PKMN_TRAINER_LYRA,      1
+.equ TRAINERCLASS_YOUNGSTER,              2
+.equ TRAINERCLASS_LASS,                   3
+.equ TRAINERCLASS_CAMPER,                 4
+.equ TRAINERCLASS_PICNICKER,              5
+.equ TRAINERCLASS_BUG_CATCHER,            6
+.equ TRAINERCLASS_AROMA_LADY,             7
+.equ TRAINERCLASS_TWINS,                  8
+.equ TRAINERCLASS_HIKER,                  9
+.equ TRAINERCLASS_BATTLE_GIRL,            10
+.equ TRAINERCLASS_FISHERMAN,              11
+.equ TRAINERCLASS_CYCLIST_M,              12
+.equ TRAINERCLASS_CYCLIST_F,              13
+.equ TRAINERCLASS_BLACK_BELT,             14
+.equ TRAINERCLASS_ARTIST,                 15
+.equ TRAINERCLASS_PKMN_BREEDER_M,         16
+.equ TRAINERCLASS_PKMN_BREEDER_F,         17
+.equ TRAINERCLASS_COWGIRL,                18
+.equ TRAINERCLASS_JOGGER,                 19
+.equ TRAINERCLASS_POKEFAN_M,              20
+.equ TRAINERCLASS_POKEFAN,                21
+.equ TRAINERCLASS_POKE_KID,               22
+.equ TRAINERCLASS_RIVAL,                  23
+.equ TRAINERCLASS_ACE_TRAINER_M,          24
+.equ TRAINERCLASS_ACE_TRAINER_F,          25
+.equ TRAINERCLASS_WAITRESS,               26
+.equ TRAINERCLASS_VETERAN,                27
+.equ TRAINERCLASS_NINJA_BOY,              28
+.equ TRAINERCLASS_DRAGON_TAMER,           29
+.equ TRAINERCLASS_BIRD_KEEPER,            30
+.equ TRAINERCLASS_JUGGLER,                31
+.equ TRAINERCLASS_RICH_BOY,               32
+.equ TRAINERCLASS_LADY,                   33
+.equ TRAINERCLASS_GENTLEMAN,              34
+.equ TRAINERCLASS_SOCIALITE,              35
+.equ TRAINERCLASS_BEAUTY,                 36
+.equ TRAINERCLASS_COLLECTOR,              37
+.equ TRAINERCLASS_POLICEMAN,              38
+.equ TRAINERCLASS_PKMN_RANGER_M,          39
+.equ TRAINERCLASS_PKMN_RANGER_F,          40
+.equ TRAINERCLASS_SCIENTIST,              41
+.equ TRAINERCLASS_SWIMMER_M,              42
+.equ TRAINERCLASS_SWIMMER_F,              43
+.equ TRAINERCLASS_TUBER_M,                44
+.equ TRAINERCLASS_TUBER_F,                45
+.equ TRAINERCLASS_SAILOR,                 46
+.equ TRAINERCLASS_KIMONO_GIRL,            47
+.equ TRAINERCLASS_RUIN_MANIAC,            48
+.equ TRAINERCLASS_PSYCHIC_M,              49
+.equ TRAINERCLASS_PSYCHIC_F,              50
+.equ TRAINERCLASS_PI,                     51
+.equ TRAINERCLASS_GUITARIST,              52
+.equ TRAINERCLASS_ACE_TRAINER_M_GS,       53
+.equ TRAINERCLASS_ACE_TRAINER_F_GS,       54
+.equ TRAINERCLASS_TEAM_ROCKET,            55
+.equ TRAINERCLASS_SKIER,                  56
+.equ TRAINERCLASS_ROUGHNECK,              57
+.equ TRAINERCLASS_CLOWN,                  58
+.equ TRAINERCLASS_WORKER,                 59
+.equ TRAINERCLASS_SCHOOL_KID_M,           60
+.equ TRAINERCLASS_SCHOOL_KID_F,           61
+.equ TRAINERCLASS_TEAM_ROCKET_F,          62
+.equ TRAINERCLASS_BURGLAR,                63
+.equ TRAINERCLASS_FIREBREATHER,           64
+.equ TRAINERCLASS_BIKER,                  65
+.equ TRAINERCLASS_LEADER_FALKNER,         66
+.equ TRAINERCLASS_LEADER_BUGSY,           67
+.equ TRAINERCLASS_POKE_MANIAC,            68
+.equ TRAINERCLASS_BIRD_KEEPER_GS,         69
+.equ TRAINERCLASS_LEADER_WHITNEY,         70
+.equ TRAINERCLASS_RANCHER,                71
+.equ TRAINERCLASS_LEADER_MORTY,           72
+.equ TRAINERCLASS_LEADER_PRYCE,           73
+.equ TRAINERCLASS_LEADER_JASMINE,         74
+.equ TRAINERCLASS_LEADER_CHUCK,           75
+.equ TRAINERCLASS_LEADER_CLAIR,           76
+.equ TRAINERCLASS_TEACHER,                77
+.equ TRAINERCLASS_SUPER_NERD,             78
+.equ TRAINERCLASS_SAGE,                   79
+.equ TRAINERCLASS_PARASOL_LADY,           80
+.equ TRAINERCLASS_WAITER,                 81
+.equ TRAINERCLASS_MEDIUM,                 82
+.equ TRAINERCLASS_CAMERAMAN,              83
+.equ TRAINERCLASS_REPORTER,               84
+.equ TRAINERCLASS_IDOL,                   85
+.equ TRAINERCLASS_CHAMPION,               86
+.equ TRAINERCLASS_ELITE_FOUR_WILL,        87
+.equ TRAINERCLASS_ELITE_FOUR_KAREN,       88
+.equ TRAINERCLASS_ELITE_FOUR_KOGA,        89
+.equ TRAINERCLASS_PKMN_TRAINER_CHERYL,    90
+.equ TRAINERCLASS_PKMN_TRAINER_RILEY,     91
+.equ TRAINERCLASS_PKMN_TRAINER_BUCK,      92
+.equ TRAINERCLASS_PKMN_TRAINER_MIRA,      93
+.equ TRAINERCLASS_PKMN_TRAINER_MARLEY,    94
+.equ TRAINERCLASS_PKMN_TRAINER_FTR_LUCAS, 95
+.equ TRAINERCLASS_PKMN_TRAINER_FTR_DAWN,  96
+.equ TRAINERCLASS_TOWER_TYCOON,           97
+.equ TRAINERCLASS_LEADER_BROCK,           98
+.equ TRAINERCLASS_HALL_MATRON,            99
+.equ TRAINERCLASS_FACTORY_HEAD,           100
+.equ TRAINERCLASS_ARCADE_STAR,            101
+.equ TRAINERCLASS_CASTLE_VALET,           102
+.equ TRAINERCLASS_LEADER_MISTY,           103
+.equ TRAINERCLASS_LEADER_LT_SURGE,        104
+.equ TRAINERCLASS_LEADER_ERIKA,           105
+.equ TRAINERCLASS_LEADER_JANINE,          106
+.equ TRAINERCLASS_LEADER_SABRINA,         107
+.equ TRAINERCLASS_LEADER_BLAINE,          108
+.equ TRAINERCLASS_PKMN_TRAINER_RED,       109
+.equ TRAINERCLASS_LEADER_BLUE,            110
+.equ TRAINERCLASS_ELDER,                  111
+.equ TRAINERCLASS_ELITE_FOUR_BRUNO,       112
+.equ TRAINERCLASS_SCIENTIST_GS,           113
+.equ TRAINERCLASS_EXECUTIVE_ARIANA,       114
+.equ TRAINERCLASS_BOARDER,                115
+.equ TRAINERCLASS_EXECUTIVE_ARCHER,       116
+.equ TRAINERCLASS_EXECUTIVE_PROTON,       117
+.equ TRAINERCLASS_EXECUTIVE_PETREL,       118
+.equ TRAINERCLASS_PASSERBY,               119
+.equ TRAINERCLASS_MYSTERY_MAN,            120
+.equ TRAINERCLASS_DOUBLE_TEAM,            121
+.equ TRAINERCLASS_YOUNG_COUPLE,           122
+.equ TRAINERCLASS_PKMN_TRAINER_LANCE,     123
+.equ TRAINERCLASS_ROCKET_BOSS,            124
+.equ TRAINERCLASS_PKMN_TRAINER_LUCAS_DP,  125
+.equ TRAINERCLASS_PKMN_TRAINER_DAWN_DP,   126
+.equ TRAINERCLASS_PKMN_TRAINER_LUCAS_PT,  127
+.equ TRAINERCLASS_PKMN_TRAINER_DAWN_PT,   128
 
 // pokedex data constants
 .equ DEX_END_AREA_DATA, 0x0
@@ -226,117 +372,12 @@
 .equ DEX_AZALEA_TOWN, 0x42
 .equ DEX_SAFARI_ZONE_GATE, 0x43
 .equ DEX_ROUTE_16_2, 0x44 // same as above route 16
-/*.equ DEX_FARAWAY_PLACE_JOHTO, // johto faraway place, no blinking
-.equ DEX_ROUTE_1_2, // route 1 no blinking*/
 
 // these constants used for organization i guess
 .equ DEX_MORNING, 0
 .equ DEX_DAY, 1
 .equ DEX_NIGHT, 2
 .equ DEX_SPECIAL, 3 // like headbutt trees (blink the area red)
-
-// tm constants
-
-.equ TM001, 1 << 0
-.equ TM002, 1 << 1
-.equ TM003, 1 << 2
-.equ TM004, 1 << 3
-.equ TM005, 1 << 4
-.equ TM006, 1 << 5
-.equ TM007, 1 << 6
-.equ TM008, 1 << 7
-.equ TM009, 1 << 8
-.equ TM010, 1 << 9
-.equ TM011, 1 << 10
-.equ TM012, 1 << 11
-.equ TM013, 1 << 12
-.equ TM014, 1 << 13
-.equ TM015, 1 << 14
-.equ TM016, 1 << 15
-.equ TM017, 1 << 16
-.equ TM018, 1 << 17
-.equ TM019, 1 << 18
-.equ TM020, 1 << 19
-.equ TM021, 1 << 20
-.equ TM022, 1 << 21
-.equ TM023, 1 << 22
-.equ TM024, 1 << 23
-.equ TM025, 1 << 24
-.equ TM026, 1 << 25
-.equ TM027, 1 << 26
-.equ TM028, 1 << 27
-.equ TM029, 1 << 28
-.equ TM030, 1 << 29
-.equ TM031, 1 << 30
-.equ TM032, 1 << 31
-.equ TM033, 1 << 0
-.equ TM034, 1 << 1
-.equ TM035, 1 << 2
-.equ TM036, 1 << 3
-.equ TM037, 1 << 4
-.equ TM038, 1 << 5
-.equ TM039, 1 << 6
-.equ TM040, 1 << 7
-.equ TM041, 1 << 8
-.equ TM042, 1 << 9
-.equ TM043, 1 << 10
-.equ TM044, 1 << 11
-.equ TM045, 1 << 12
-.equ TM046, 1 << 13
-.equ TM047, 1 << 14
-.equ TM048, 1 << 15
-.equ TM049, 1 << 16
-.equ TM050, 1 << 17
-.equ TM051, 1 << 18
-.equ TM052, 1 << 19
-.equ TM053, 1 << 20
-.equ TM054, 1 << 21
-.equ TM055, 1 << 22
-.equ TM056, 1 << 23
-.equ TM057, 1 << 24
-.equ TM058, 1 << 25
-.equ TM059, 1 << 26
-.equ TM060, 1 << 27
-.equ TM061, 1 << 28
-.equ TM062, 1 << 29
-.equ TM063, 1 << 30
-.equ TM064, 1 << 31
-.equ TM065, 1 << 0
-.equ TM066, 1 << 1
-.equ TM067, 1 << 2
-.equ TM068, 1 << 3
-.equ TM069, 1 << 4
-.equ TM070, 1 << 5
-.equ TM071, 1 << 6
-.equ TM072, 1 << 7
-.equ TM073, 1 << 8
-.equ TM074, 1 << 9
-.equ TM075, 1 << 10
-.equ TM076, 1 << 11
-.equ TM077, 1 << 12
-.equ TM078, 1 << 13
-.equ TM079, 1 << 14
-.equ TM080, 1 << 15
-.equ TM081, 1 << 16
-.equ TM082, 1 << 17
-.equ TM083, 1 << 18
-.equ TM084, 1 << 19
-.equ TM085, 1 << 20
-.equ TM086, 1 << 21
-.equ TM087, 1 << 22
-.equ TM088, 1 << 23
-.equ TM089, 1 << 24
-.equ TM090, 1 << 25
-.equ TM091, 1 << 26
-.equ TM092, 1 << 27
-.equ HM001, 1 << 28
-.equ HM002, 1 << 29
-.equ HM003, 1 << 30
-.equ HM004, 1 << 31
-.equ HM005, 1 << 0
-.equ HM006, 1 << 1
-.equ HM007, 1 << 2
-.equ HM008, 1 << 3
 
 // tutor field constants
 
@@ -393,138 +434,6 @@
 .equ TUTOR_BUG_BITE, 1 << 18
 .equ TUTOR_HEADBUTT, 1 << 19
 
-// trainer classes
-
-.equ CLASS_PKMN_TRAINER_0, 0
-.equ CLASS_PKMN_TRAINER_1, 1
-.equ CLASS_YOUNGSTER, 2
-.equ CLASS_LASS, 3
-.equ CLASS_CAMPER, 4
-.equ CLASS_PICNICKER, 5
-.equ CLASS_BUG_CATCHER, 6
-.equ CLASS_AROMA_LADY, 7
-.equ CLASS_TWINS, 8
-.equ CLASS_HIKER, 9
-.equ CLASS_BATTLE_GIRL, 10
-.equ CLASS_FISHERMAN, 11
-.equ CLASS_CYCLIST_M, 12
-.equ CLASS_CYCLIST_F, 13
-.equ CLASS_BLACK_BELT, 14
-.equ CLASS_ARTIST, 15
-.equ CLASS_PKMN_BREEDER_M, 16
-.equ CLASS_PKMN_BREEDER_F, 17
-.equ CLASS_COWGIRL, 18
-.equ CLASS_JOGGER, 19
-.equ CLASS_POKEFAN_M, 20
-.equ CLASS_POKEFAN_F, 21
-.equ CLASS_POKE_KID, 22
-.equ CLASS_RIVAL, 23
-.equ CLASS_ACE_TRAINER_M, 24
-.equ CLASS_ACE_TRAINER_F, 25
-.equ CLASS_WAITRESS, 26
-.equ CLASS_VETERAN, 27
-.equ CLASS_NINJA_BOY, 28
-.equ CLASS_DRAGON_TAMER, 29
-.equ CLASS_BIRD_KEEPER, 30
-.equ CLASS_JUGGLER, 31
-.equ CLASS_RICH_BOY, 32
-.equ CLASS_LADY, 33
-.equ CLASS_GENTLEMAN, 34
-.equ CLASS_SOCIALITE, 35
-.equ CLASS_BEAUTY, 36
-.equ CLASS_COLLECTOR, 37
-.equ CLASS_POLICEMAN, 38
-.equ CLASS_PKMN_RANGER_M, 39
-.equ CLASS_PKMN_RANGER_F, 40
-.equ CLASS_SCIENTIST, 41
-.equ CLASS_SWIMMER_M, 42
-.equ CLASS_SWIMMER_F, 43
-.equ CLASS_TUBER_M, 44
-.equ CLASS_TUBER_F, 45
-.equ CLASS_SAILOR, 46
-.equ CLASS_KIMONO_GIRL, 47
-.equ CLASS_RUIN_MANIAC, 48
-.equ CLASS_PSYCHIC_M, 49
-.equ CLASS_PSYCHIC_F, 50
-.equ CLASS_PI, 51
-.equ CLASS_GUITARIST, 52
-.equ CLASS_ACE_TRAINER_M_1, 53
-.equ CLASS_ACE_TRAINER_F_1, 54
-.equ CLASS_TEAM_ROCKET, 55
-.equ CLASS_SKIER, 56
-.equ CLASS_ROUGHNECK, 57
-.equ CLASS_CLOWN, 58
-.equ CLASS_WORKER, 59
-.equ CLASS_SCHOOL_KID_M, 60
-.equ CLASS_SCHOOL_KID_F, 61
-.equ CLASS_TEAM_ROCKET_1, 62
-.equ CLASS_BURGLAR, 63
-.equ CLASS_FIREBREATHER, 64
-.equ CLASS_BIKER, 65
-.equ CLASS_LEADER_M, 66
-.equ CLASS_LEADER_F, 67
-.equ CLASS_POKE_MANIAC, 68
-.equ CLASS_BIRD_KEEPER_1, 69
-.equ CLASS_LEADER, 70
-.equ CLASS_RANCHER, 71
-.equ CLASS_LEADER_0, 72
-.equ CLASS_LEADER_1, 73
-.equ CLASS_LEADER_2, 74
-.equ CLASS_LEADER_3, 75
-.equ CLASS_LEADER_4, 76
-.equ CLASS_TEACHER, 77
-.equ CLASS_SUPER_NERD, 78
-.equ CLASS_SAGE, 79
-.equ CLASS_PARASOL_LADY, 80
-.equ CLASS_WAITER, 81
-.equ CLASS_MEDIUM, 82
-.equ CLASS_CAMERAMAN, 83
-.equ CLASS_REPORTER, 84
-.equ CLASS_IDOL, 85
-.equ CLASS_CHAMPION, 86
-.equ CLASS_ELITE_FOUR_0, 87
-.equ CLASS_ELITE_FOUR_1, 88
-.equ CLASS_ELITE_FOUR_2, 89
-.equ CLASS_PKMN_TRAINER_2, 90
-.equ CLASS_PKMN_TRAINER_3, 91
-.equ CLASS_PKMN_TRAINER_4, 92
-.equ CLASS_PKMN_TRAINER_5, 93
-.equ CLASS_PKMN_TRAINER_6, 94
-.equ CLASS_PKMN_TRAINER_7, 95
-.equ CLASS_PKMN_TRAINER_8, 96
-.equ CLASS_TOWER_TYCOON, 97
-.equ CLASS_LEADER_5, 98
-.equ CLASS_HALL_MATRON, 99
-.equ CLASS_FACTORY_HEAD, 100
-.equ CLASS_ARCADE_STAR, 101
-.equ CLASS_CASTLE_VALET, 102
-.equ CLASS_LEADER_6, 103
-.equ CLASS_LEADER_7, 104
-.equ CLASS_LEADER_8, 105
-.equ CLASS_LEADER_9, 106
-.equ CLASS_LEADER_10, 107
-.equ CLASS_LEADER_11, 108
-.equ CLASS_PKMN_TRAINER_9, 109
-.equ CLASS_LEADER_12, 110
-.equ CLASS_ELDER, 111
-.equ CLASS_ELITE_FOUR_3, 112
-.equ CLASS_SCIENTIST_1, 113
-.equ CLASS_EXECUTIVE, 114
-.equ CLASS_BOARDER, 115
-.equ CLASS_EXECUTIVE_0, 116
-.equ CLASS_EXECUTIVE_1, 117
-.equ CLASS_EXECUTIVE_2, 118
-.equ CLASS_PASSERBY, 119
-.equ CLASS_MYSTERY_MAN, 120
-.equ CLASS_DOUBLE_TEAM, 121
-.equ CLASS_YOUNG_COUPLE, 122
-.equ CLASS_PKMN_TRAINER_10, 123
-.equ CLASS_ROCKET_BOSS, 124
-.equ CLASS_PKMN_TRAINER_11, 125
-.equ CLASS_PKMN_TRAINER_12, 126
-.equ CLASS_PKMN_TRAINER_13, 127
-.equ CLASS_PKMN_TRAINER_14, 128
-
 // trainer data flags
 
 .equ TRAINER_DATA_TYPE_NOTHING, (0x00)
@@ -548,9 +457,8 @@
 .equ TRAINER_DATA_EXTRA_TYPE_SPEED, 0x10
 .equ TRAINER_DATA_EXTRA_TYPE_SP_ATK, 0x20
 .equ TRAINER_DATA_EXTRA_TYPE_SP_DEF, 0x40
-.equ TRAINER_DATA_EXTRA_TYPE_TYPES, 0x80
-.equ TRAINER_DATA_EXTRA_TYPE_PP_COUNTS, 0x100
-.equ TRAINER_DATA_EXTRA_TYPE_NICKNAME, 0x200
+.equ TRAINER_DATA_EXTRA_TYPE_PP_COUNTS, 0x80
+.equ TRAINER_DATA_EXTRA_TYPE_NICKNAME, 0x100
 
 // trainer ai flags
 
@@ -573,6 +481,7 @@
 
 .equ SINGLE_BATTLE, 0
 .equ DOUBLE_BATTLE, 2
+.equ NO_PARTNER_DOUBLE_BATTLE, 3
 
 // trainer text types
 
@@ -587,8 +496,12 @@
 .equ TEXT_DOUBLE_DEFEATED_IN_BATTLE_2, 8
 .equ TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_2, 9
 .equ TEXT_DOUBLE_ONLY_1_POKEMON_2, 10
-.equ TEXT_LAST_MON_CRITICAL, 15
-.equ TEXT_LAST_MON_SENT_OUT, 16
+.equ TEXT_ONLY_FIGHT_NOON_REMATCH_OVERWORLD, 11
+.equ TEXT_ONLY_FIGHT_NIGHT_REMATCH_OVERWORLD, 12
+.equ TEXT_HIT_POKEMON_FIRST_TIME, 13
+.equ TEXT_CURRENT_MON_CRITICAL, 14
+.equ TEXT_LAST_MON_SENT_OUT, 15
+.equ TEXT_LAST_MON_CRITICAL, 16
 .equ TEXT_REMATCH_IN_OVERWORLD, 17 // 17
 .equ TEXT_REMATCH_IN_OVERWORLD_DOUBLE_1, 18 // 18
 .equ TEXT_REMATCH_IN_OVERWORLD_DOUBLE_2, 19 // 19
@@ -714,7 +627,11 @@
 .equ TERRAIN_BATTLE_CASTLE, (21)
 .equ TERRAIN_BATTLE_HALL, (22)
 .equ TERRAIN_GIRATINA, (23)  // unused
-.equ TERRAIN_MAX, (24)
+.equ TERRAIN_ELECTRIC_TERRAIN, (24)
+.equ TERRAIN_MISTY_TERRAIN, (25)
+.equ TERRAIN_GRASSY_TERRAIN, (26)
+.equ TERRAIN_PSYCHIC_TERRAIN, (27)
+.equ TERRAIN_MAX, (28)
 .equ TERRAIN_CURRENT, -1
 
 // Terrain Overlays
